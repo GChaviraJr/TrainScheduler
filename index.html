@@ -1,38 +1,87 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css"/>
     <meta charset="utf-8" />
     <meta https-equiv="X-UA-Compatible" content="IE=edge">
     <title>TrainScheduler</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+
 </head>
+<header>
+    <div class="jumbotron">
+        <h1 class="display-4">Train Scheduler</h1>
+        <p class="lead">
+            Add your itinerary below using the "Add Train" 
+            form and then submit your results. Your results 
+            will be added to the page in real time!
+        </p>
+      </div>
+</header>
 
 <body>
-    <div>
-        <p class="currentTrainSchedule">
-            Current Train Schdule
-        </p>
-        <div class="trainScheduleWrapper">
-            <li class="trainNameHead">
-                Train Name
-            </li>
-            <li class="destinationHead">
-                Destination
-            </li>
-            <li class="frequencyHead">
-                Frequency (min)
-            </li>
-            <li class="nextArrivalHead">
-                Next Arrival
-            </li>
-            <li class="minutesAwayHead">
-                Minutes Away
-            </li>
+    <div class="card" style="width: 100%;">
+        <div class="card-header">
+            Current Train Schedule
+        </div>
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">Train Name</th>
+                    <th scope="col">Destination</th>
+                    <th scope="col">Frequency</th>
+                    <th scope="col">Next Arrival</th>
+                    <th scope="col">Minutes Away</th>
+                </tr>
+            </thead>
+            <tbody id="newTrain">
+
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            Add Train
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Train Name</label>
+                <input type="text" class="form-control" id="trainName" aria-describedby="emailHelp"
+                    placeholder="Choo Choo">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Destination</label>
+                <input type="text" class="form-control" id="destination" placeholder="Atlanta">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">First Train Time (HHmm-military time)</label>
+                <input type="text" class="form-control" id="firstTrainTime" aria-describedby="emailHelp"
+                    placeholder="0400">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Frequency (min)</label>
+                <input type="text" class="form-control" id="frequency" placeholder="25">
+            </div>
+            <a href="#" id="submitBtn" class="btn btn-primary">Submit</a>
         </div>
     </div>
 
+
+
+
 </body>
+<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
 <script src="assets/javascript/app.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+
 </html>
